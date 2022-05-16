@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOREMI- Piano</title>
+    <style>
+        *,*::before, *::after{
+            box-sizing: border-box;
+        }
+        body{
+            margin:0px;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: darkblue;
+        }
+        .octave{
+            padding: 10px;
+            min-height: 50vh;
+            min-width: 80vw;
+            border-color: aquamarine solid 2px;
+            background-color: orange;
+            display:flex;
+            
+           
+        }
+        .key{
+        } 
+
+        .white{
+            --width:100px;
+            width: var(--width);
+            height: calc(var(--width)*4);
+            background-color: white;
+            border-left: gray 2px solid;
+          
+        }
+        .white:hover{
+            background-color: bisque;
+        }
+        
+        .black{
+            --width:60px;
+            width: var(--width);
+            height: calc(var(--width)*4);
+            margin-left: calc(var(--width)/-2);
+            margin-right: calc(var(--width)/-2);
+            color: antiquewhite;
+            background-color: black;
+            z-index: 2;
+        }
+        .black:hover{ 
+            background-color: darkblue;
+
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="musicbox"></div>
+    <div class="octave">
+        <div id="Ckey" class="key white" onclick="playNote('C')">C-do</div>
+        <div id="Cbkey" class="key black" onclick="playNote('Cb')">Cb-re b mol</div>
+        <div id="Dkey" class="key white" onclick="playNote('D')">D re</div>
+        <div id="Dbkey"class="key black" onclick="playNote('Db')">Db mi bmol</div>
+        <div id="Ekey" class="key white" onclick="playNote('E')">E mi</div>
+
+        <div id="Fkey" class="key white" onclick="playNote('F')">F-Fa</div>
+        <div id="Fbkey" class="key black" onclick="playNote('Fb')">F- sol b mol</div>
+        <div id="Gkey" class="key white" onclick="playNote('G')">G- Sol</div>
+        <div id="Gbkey"class="key black" onclick="playNote('Gb')">Gb-la b mol</div>
+        <div id="Akey" class="key white" onclick="playNote('A')">A- La </div>
+        <div id="Abkey"class="key black" onclick="playNote('Ab')">Ab- Si be Mol</div>
+        <div id="Bkey" class="key white" onclick="playNote('B')">B Si</div>
+    </div>
+</body>
+<audio id="CNote" src="assets\Notes\note\c3.mp3"></audio>
+<audio id="CbNote" src="assets\Notes\note\c-3.mp3"></audio>
+<audio id="DNote" src="assets\Notes\note\d3.mp3"></audio>
+<audio id="DbNote" src="assets\Notes\note\d-3.mp3"></audio>
+<audio id="ENote" src="assets\Notes\note\e3.mp3"></audio>
+<audio id="FNote" src="assets\Notes\note\f3.mp3"></audio>
+<audio id="FbNote" src="assets\Notes\note\f-3.mp3"></audio>
+<audio id="GNote" src="assets\Notes\note\g3.mp3"></audio>
+<audio id="GbNote" src="assets\Notes\note\g-3.mp3"></audio>
+<audio id="ANote" src="assets\Notes\note\a4.mp3"></audio>
+<audio id="AbNote" src="assets\Notes\note\a-4.mp3"></audio>
+<audio id="BNote" src="assets\Notes\note\b4.mp3"></audio>
+
+<script>
+    function playNote(noteid=""){
+        let msg="note_player:"+noteid+"Note"
+       console.log(msg)
+       var n = document.getElementById((noteid+"Note"));
+       n.currentTime=0;
+       n.play();
+    }
+
+
+</script>
+
+</html>
